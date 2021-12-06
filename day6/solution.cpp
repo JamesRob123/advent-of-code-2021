@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <array>
 #include <fstream>
 #include <algorithm>
 #include <numeric>
@@ -38,7 +39,7 @@ int solve1(std::vector<int> input) {
 }
 
 long long solve2(std::vector<int>& input) {
-    std::vector<long long> fishes (9);
+    std::array<long long, 9> fishes {};
 
     // Every fish can only have a value 0 - 8 so we can compress them
     for (int n : input) {
