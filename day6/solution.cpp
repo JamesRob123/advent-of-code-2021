@@ -38,7 +38,7 @@ int solve1(std::vector<int> input) {
     return input.size();
 }
 
-long long solve2(std::vector<int>& input) {
+long long solve2(const std::vector<int>& input) {
     std::array<long long, 9> fishes {};
 
     // Every fish can only have a value 0 - 8 so we can compress them
@@ -48,11 +48,8 @@ long long solve2(std::vector<int>& input) {
 
     for (int i = 0; i < 256; ++i) {
         // Simulating day i
-        std::rotate(fishes.begin(), fishes.begin() + 1, fishes.begin() + 7);
-        long long temp = fishes[6];
-        fishes[6] += fishes[7];
-        fishes[7] = fishes[8];
-        fishes[8] = temp;
+        std::rotate(fishes.begin(), fishes.begin() + 1, fishes.end());
+        fishes[6] += fishes[8];
     }
 
     return std::accumulate(fishes.begin(), fishes.end(), 0LL);
