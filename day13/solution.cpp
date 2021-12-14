@@ -77,7 +77,7 @@ void solve2(Input input) {
                 if (input.first.find(std::make_pair(j, i)) == input.first.end()) {
                     std::cout << '.';
                 } else {
-                    std::cout << '#';
+                    std::cout << "█";
                 }
             }
             std::cout << '\n';
