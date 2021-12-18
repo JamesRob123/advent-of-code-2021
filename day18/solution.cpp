@@ -195,22 +195,6 @@ int calc_magnitude(Node* snail_fish_number) {
     return sum;
 }
 
-void print(Node* root) {
-    std::cout << "["; std::flush(std::cout);
-    try {
-        print(std::get<std::unique_ptr<Node>>(root->l_child).get());
-    } catch (...) {
-        std::cout << std::get<int>(root->l_child);
-    }
-    std::cout << ","; std::flush(std::cout);;
-    try {
-        print(std::get<std::unique_ptr<Node>>(root->r_child).get());
-    } catch (...) {
-        std::cout << std::get<int>(root->r_child);
-    }
-    std::cout << "]"; std::flush(std::cout);;
-}
-
 int solve1(const std::vector<std::string>& input) {
     std::unique_ptr<Node> last_snail_fish_number = nullptr;
     for (const auto& snail_fish_number : input) {
